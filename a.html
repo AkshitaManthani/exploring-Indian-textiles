@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textiles of India</title>
+    <style>
+        body {    
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #FF9933, #FF5733);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+ml;utf8,<svg xmlnsx="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.1)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+            opacity: 0.1;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            position: relative;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 25px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.08);
+        }
+        
+        .map-container {
+            position: relative;
+            width: 100%;
+            margin: 30px 0;
+
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .india-map {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-area {
+            position: absolute;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 5;
+            background-color:transparent; 
+            border-radius: 4px;
+            opacity: 1;
+        }
+        
+        .hover-area:hover {
+            opacity: 1;
+        }
+        
+        .popup {
+            position: absolute;
+            width: 280px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            padding: 20px;
+            z-index: 100;
+            display: none;
+            animation: fadeIn 0.2s ease-out;
+            border: 1px solid #eee;
+            pointer-events: none; /* Prevent popup from interfering with hover */
+        }
+        
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .popup h3 {
+            margin-top: 0;
+            color: #FF5733;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+            font-size: 1.4em;
+        }
+        
+        .popup img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            border: 1px solid #eee;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(135deg, #333, #222);
+            color: white;
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+        
+        footer p {
+            margin: 0;
+        }
+        
+        .intro-text {
+            font-size: 1.1em;
+            margin-bottom: 25px;
+            color: #444;
+        }
+        
+        .dance-overview {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border-left: 4px solid #FF9933;
+        }
+        
+        .dance-overview h2 {
+            margin-top: 0;
+            color: #FF5733;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                margin: 15px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .popup {
+                width: 90%;
+                left: 5% !important;
+                right: 5% !important;
+                position: fixed;
+                top: 50% !important;
+                transform: translateY(-50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div class="container">
+        
+    
+        
+        <div class="map-container">
+            <img src="indiamap6.jpg" alt="India Map" class="india-map" id="indiaMap" onerror="this.src='indiamap6.jpg'">
+            
+            <!-- Hover areas for each state -->
+            <div class="hover-area" style="top: 79%; left: 35%; width: 8%; height: 12%;" data-dance="Kanchipuram" data-url="tamilnadu.html"></div> <!-- Tamil Nadu -->
+            <div class="hover-area" style="top: 27%; left: 31%; width: 5%; height: 6%;" data-dance="PunjaDurries" data-url="haryana.html"></div> <!-- Tamil Nadu -->
+            <div class="hover-area" style="top: 69%; left: 25%; width: 3%; height: 3%;" data-dance="Kunbi" data-url="goa.html"></div> <!-- Goa -->
+            <div class="hover-area" style="top: 23%; left: 39%; width: 5%; height: 6%;" data-dance="Thulma" data-url="utharakhand.html"></div> <!-- UttaraKhand -->
+            <div class="hover-area" style="top: 21%; left: 28%; width: 6%; height: 6%;" data-dance="Khes" data-url="punjab.html"></div> <!-- Panjab -->
+            <div class="hover-area" style="top: 18%; left: 33%; width: 6%; height: 6%;" data-dance="ChambaRumal" data-url="himachalpradesh.html"></div> <!-- Himachal Pradesh -->
+            <div class="hover-area" style="top: 30%; left: 38%; width: 13%; height: 11%;" data-dance="Banarasi" data-url="UP.html"></div> <!-- Uttar Pradesh -->
+            <div class="hover-area" style="top: 79%; left: 29%; width: 5%; height: 12%;" data-dance="KasavuMundu" data-url="kerala.html"></div> <!-- Kerala -->
+            <div class="hover-area" style="top: 66%; left: 35%; width: 10%; height: 12%;" data-dance="Kalankari" data-url="andrapradesh.html"></div> <!-- Andhra Pradesh -->
+            <div class="hover-area" style="top: 50%; left: 52%; width: 12%; height: 10%;" data-dance="Bomkai" data-url="odisha.html"></div> <!-- Odisha -->
+            <div class="hover-area" style="top: 39%; left: 79%; width: 4%; height: 4%;" data-dance="SapheeLanphee" data-url="manipur.html"></div> <!-- Manipur -->
+            <div class="hover-area" style="top: 35%; left: 70%; width: 10%; height: 3%;" data-dance="MugaSilk" data-url="assam.html"></div> <!-- Assam -->
+            <div class="hover-area" style="top: 7%; left: 27%; width: 16%; height: 12%;" data-dance="Raffal" data-url="jammukashmir.html"></div> <!-- Jammu & Kashmir -->
+            <div class="hover-area" style="top: 58%; left: 36%; width: 8%; height: 10%;" data-dance="Pochampally" data-url="telangana.html"></div> <!-- Telangana -->
+            <div class="hover-area" style="top: 66%; left: 28%; width: 8%; height: 15%;" data-dance="MysoreSilk" data-url="karnataka.html"></div> <!-- Karnataka -->
+            <div class="hover-area" style="top: 53%; left: 21%; width: 16%; height: 13%;" data-dance="Paithani" data-url="maharashtra.html"></div> <!-- Maharashtra -->
+            <div class="hover-area" style="top: 48%; left: 45%; width: 7%; height: 12%;" data-dance="KosaSilk" data-url="chattisghar.html"></div> <!-- Chhattisgarh -->
+            <div class="hover-area" style="top: 42%; left: 31%; width: 16%; height: 10%;" data-dance="BaghPrinting" data-url="madhyapradesh.html"></div> <!-- Madhya Pradesh -->
+            <div class="hover-area" style="top: 43%; left: 12%; width: 16%; height: 10%;" data-dance="Patola" data-url="gujarat.html"></div> <!-- Gujarat -->
+            <div class="hover-area" style="top: 32%; left: 15%; width: 23%; height: 10%;" data-dance="Bandhani" data-url="rajasthan.html"></div> <!-- Rajasthan -->
+            <div class="hover-area" style="top: 43%; left: 54%; width: 8%; height: 6%;" data-dance="TussarSilk" data-url="jharkhand.html"></div> <!-- Jharkhand -->
+            <div class="hover-area" style="top: 44%; left: 61%; width: 7%; height: 6%;" data-dance="Jamdani" data-url="westbengal.html"></div> <!-- West Bengal -->
+            <div class="hover-area" style="top: 37%; left: 54%; width: 9%; height: 5%;" data-dance="Chingariweaves" data-url="bihar.html"></div> <!-- Bihar -->
+            <div class="hover-area" style="top: 43%; left: 77%; width: 4%; height: 6%;" data-dance="Puanchei" data-url="mizoram.html"></div> <!-- Mizoram -->
+            <div class="hover-area" style="top: 42%; left: 73%; width: 3%; height: 5%;" data-dance="Lasingphee" data-url="tripura.html"></div> <!-- Tripura -->
+            <div class="hover-area" style="top: 38%; left: 69%; width: 7%; height: 3%;" data-dance="EriSilk" data-url="meghalaya.html"></div> <!-- Meghalaya -->
+            <div class="hover-area" style="top: 35%; left: 81%; width: 3%; height: 3%;" data-dance="LoinLoom" data-url="nagaland.html"></div> <!-- Nagaland -->
+            <div class="hover-area" style="top: 25%; left: 74%; width: 17%; height:9%;" data-dance="Galo" data-url="arunachalpradesh.html"></div> <!-- Arunachal Pradesh -->
+            <div class="hover-area" style="top: 32%; left: 65%; width: 2%; height: 5%;" data-dance="Lepcha" data-url="sikkim.html"></div> <!-- Sikkim -->
+
+            <!-- Popup Container -->
+            <div class="popup" id="dancePopup">
+                <h3 id="popupTitle">Dance Form</h3>
+                <img id="popupImage" src="" alt="Dance Form Image">
+                <p id="popupDescription">Description will appear here.</p>
+                <p id="popupOrigin"><strong>Origin:</strong> <span></span></p>
+            </div>
+        </div>
+       
+            
+    </div>
+    <script>
+        // Dance form data with placeholder images
+        const danceForms = {
+            Kanchipuram: {
+                title: "Kanchipuram",
+                image: "images/TN1.jpg",
+                description: "Kanchipuram silk sarees, also known as Kanjivaram sarees, are renowned for their rich silk, intricate designs, and traditional weaving techniques. Originating from the Kanchipuram region in Tamil Nadu, India",
+                origin: "Tamil Nadu"
+            },
+            Banarasi: {
+                title: "Banarasi",
+                image: "images/UP1.jpg",
+                description: "Banarasi fabric, particularly Banarasi silk, is renowned for its luxurious brocade work, intricate designs, and vibrant colors, making it a popular choice for sarees, lehengas, and other traditional Indian garments.",
+                origin: "Uttar Pradesh"
+            },
+            KasavuMundu: {
+                title: "KasavuMundu",
+                image: "images/KL1.jpg",
+                description: "A Kasavu Mundu characterized by its handwoven cotton fabric and gold or silver zari borders. It's a versatile garment worn by both men and women",
+                origin: "Kerala"
+            },
+            Kunbi: {
+                title: "Kunbi",
+                image: "images/G1.jpg",
+                description: "Goa is known for its Kunbi saree, a chequered saree traditionally worn by women of the Kunbi and Gawda tribes, particularly in agricultural areas",
+                origin: "Goa"
+            },
+            Kalankari: {
+                title: "Kalankari",
+                image: "images/AP1.jpg",
+                description: "Kalamkari is a traditional Indian textile printing technique involving hand-painted or block-printed designs on fabrics using natural dyes",
+                origin: "Andhra Pradesh"
+            },
+            Bomkai: {
+                title: "Bomkai",
+                image: "images/O2.jpg",
+                description: "The Bomkai sari is a classic example of Odia handloom weaving and is highly prized for its intricate designs and vibrant colors.",
+                origin: "Odisha"
+            },
+            SapheeLanphee: {
+                title: "Saphee Lanphee",
+                image: "images/MN1.jpg",
+                description: "Shaphee Lanphee is a traditional Manipuri textile, often woven as a shawl, known for its intricate embroidery and symbolic motifs",
+                origin: "Manipur"
+            },
+            MugaSilk: {
+                title: "MugaSilk",
+                image: "images/AS1.jpg",
+                description: "Muga silk, a golden-yellow natural silk fiber, is primarily produced in Assam, India, and is known for its durability and lustrous texture",
+                origin: "Assam"
+            },
+            Raffal: {
+                title: "Raffal",
+                image: "images/JM3.jpg",
+                description: "Raffal is a type of wool,known for its warmth, durability, and ability to minimize creasing, making it suitable for travel and everyday wear",
+                origin: "Jammu & Kashmir"
+            },
+            Pochampally: {
+                title: "Pochampally",
+                image: "images/T2.jpg",
+                description: "Pochampally sari is a saree made in Bhoodan Pochampally, Yadadri Bhuvanagiri district, Telangana State, India. They have traditional geometric patterns in Ikat style of dyeing.",
+                origin: "Telangana"
+            },
+                MysoreSilk: {
+            title: "MysoreSilk",
+            image: "images/K3.jpg",
+            description: "Mysore silk is a type of mulberry silk produced in the Mysore region of Karnataka, India. It's known for its smooth texture",
+            origin: "Karnataka"
+            },
+            Paithani: {
+            title: "Paithani",
+            image: "images/MH1.jpg",
+            description: "The Paithani is a traditional handloom silk fabric originating from the Indian state of Maharashtra,one of the most expensive and prestigious fabrics in India",
+            origin: "Maharashtra"
+            },
+            KosaSilk: {
+            title: "KosaSilk",
+            image: "images/CH1.jpg",
+            description: "Kosa silk, also known as Tussar silk, is a type of silk obtained from the cocoons of the Indian silkworm, Antheraea Mylitta",
+            origin: "Chhattisgarh"
+            },
+            BaghPrinting: {
+            title: "BaghPrinting",
+            image: "images/MP1.jpg", // Example image URL – replace if needed
+            description: "Bagh print is a traditional Indian hand-block printing technique, particularly famous for its vibrant, natural dyes and intricate geometric and floral patterns",
+             origin: "Madhya Pradesh"
+            },
+            Patola: {
+            title: "Patola",
+            image: "images/GJ1.jpg", // Example image
+            description: "Patola is a renowned double ikat silk fabric, traditionally woven in Patan, Gujarat, India. It's known for its intricate and colorful designs, created by resist-dyeing both the warp and weft threads before weavings.",
+            origin: "Gujarat"
+            },
+            Bandhani: {
+            title: "Bandhani",
+            image: "images/RJ1.jpg", // Example image
+            description: "Bandhani is a traditional Indian tie-dye technique where fabric is tied and dyed to create intricate patterns. The word Bandhani comes from the Sanskrit word bandh, which means to tie.",
+            origin: "Rajasthan"
+            },
+            TussarSilk: {
+             title: "TussarSilk",
+             image: "images/J1.jpg", // Example image
+             description: "Tussar silk is characterized by its earthy tones, ranging from golden brown to dark brown, and has a subtle sheen.",
+             origin: "Jharkhand"
+             },
+             Jamdani: {
+             title: "Jamdani",
+             image: "images/WB2.jpg", // Example image
+             description: "Jamdani is a traditional weaving technique known for its intricate, figured cotton textiles with extra weft designs, often featuring floral or geometric patterns.",
+             origin: "West Bengal"
+            },
+            Chingariweaves: {
+            title: "Chingariweaves",
+            image: "images/B1.jpg", // Example image
+            description: "Chingari weaves is a textile term, specifically referring to a type of handloom weave that creates a spark-like or spark effect on fabric.",
+            origin: "Bihar"
+            },
+            PunjaDurries: {
+            title: "Punja Durries",
+            image: "images/HY1.jpg",
+            description:"Punja Durries are handwoven, flat-woven rugs, primarily from Haryana and Punjab, known for their intricate designs",
+            origin:"Haryana"
+},
+            Puanchei: {
+            title: "Puanchei",
+            image: "images/MZ1.jpg", // Bamboo dance image
+            description: "Puanchei is a traditional, colorful Mizo garment, specifically a handwoven textile, worn by Mizo women in Mizoram, India.",
+            origin: "Mizoram"
+            },
+            Lasingphee: {
+            title: "Lasingphee ",
+            image: "images/TR1.jpg",
+            description: "Laisingphee is a traditional quilted cotton fabric, particularly known in Manipur.It's woven on a backstrap loom, making it a warm and comfortable winter garment",
+            origin: "Tripura"
+            },
+            EriSilk: {
+            title: "Eri silk",
+            image: "images/MG1.jpg",
+            description: "Eri silk, also known as Ahimsa silk or peace silk, is a unique fiber produced by the Philosamia ricini moth, a silkworm native to India",
+            origin: "Meghalaya"
+            },
+            LoinLoom: {
+            title: "LoinLoom",
+            image: "images/N2.jpg",
+            description: "A Loin Loom is characterized by a continuous warp stretched between two bamboo sticks, with one end secured to a fixed point  and the other held by a strap worn around the weaver's back to regulate tension",
+    origin: "Nagaland"
+},
+Galo: {
+    title: "Galo",
+    image: "images/AR1.jpg",
+    description: "Galo textiles are traditional handloom fabrics from the Galo tribe in Arunachal Pradesh, India, known for their intricate designs and natural dyes",
+    origin: "Arunachal Pradesh"
+},
+Lepcha: {
+    title: "Lepcha",
+    image: "images/SK1.jpg",
+    description: "Lepcha Weaving of Sikkim – Global InCH- International ...Lepcha fabric, also known as Thara, is a traditional textile woven by the indigenous Lepcha people of Sikkim, India. ",
+    origin: "Sikkim"
+},
+ChambaRumal: {
+    title: "Chamba Rumal",
+    image: "images/HP3.jpg",
+    description:"Chamba Rumal is a unique form of hand embroidery originating from the Chamba region of Himachal Pradesh, India" ,
+    origin: "Himachal Pradesh"
+},
+Thulma: {
+    title: "Thulma",
+    image: "images/U3.jpg",
+    description: "Thulma refers to a traditional woolen blanket from Uttarakhand, India. It's a lightweight but warm blanket, known for its exquisite patterns and high-quality fur",
+    origin: "Uttarakhand"
+},
+Khes: {
+    title: "Khes",
+    image: "images/P1.jpg",
+    description: "Khes is a traditional handwoven cotton fabric. It's a versatile fabric used for various purposes, including bedspreads, floor coverings, shawls, and even blankets",    
+    origin: "Punjab"
+}
+       };
+        
+        // Get DOM elements
+        const hoverAreas = document.querySelectorAll('.hover-area');
+        const popup = document.getElementById('dancePopup');
+        const popupTitle = document.getElementById('popupTitle');
+        const popupImage = document.getElementById('popupImage');
+        const popupDescription = document.getElementById('popupDescription');
+        const popupOrigin = document.querySelector('#popupOrigin span');
+        
+        const indiaMap = document.getElementById('indiaMap');
+        
+        // Add fallback for images
+        popupImage.onerror = function() {
+            this.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23f0f0f0"><rect width="100" height="100"/><text x="50" y="50" font-family="Arial" font-size="10" text-anchor="middle" fill="%23999">Image not available</text></svg>';
+        };
+        
+        // Function to position popup near hover area
+        function positionPopup(area) {
+            const mapRect = document.querySelector('.map-container').getBoundingClientRect();
+            const areaRect = area.getBoundingClientRect();
+            
+            // Calculate center of hover area
+            const centerX = areaRect.left - mapRect.left + (areaRect.width / 2);
+            const centerY = areaRect.top - mapRect.top + (areaRect.height / 2);
+            
+            // Adjust position to prevent overflow
+            let left = centerX;
+            let top = centerY;
+            
+            if (left > mapRect.width / 2) {
+                left -= 300; // position to the left
+            } else {
+                left += 20; // position to the right
+            }
+            
+            if (top > mapRect.height / 2) {
+                top -= 220; // position above
+            } else {
+                top += 20; // position below
+            }
+            
+            // Ensure popup stays within map container
+            left = Math.max(20, Math.min(left, mapRect.width - 320));
+            top = Math.max(20, Math.min(top, mapRect.height - 320));
+            
+            popup.style.left = left + 'px';
+            popup.style.top = top + 'px';
+        }
+        
+        // Add hover events to each area
+        hoverAreas.forEach(area => {
+            area.addEventListener('mouseenter', function() {
+                const danceForm = this.getAttribute('data-dance');
+                const data = danceForms[danceForm];
+                
+                // Set popup content
+                popupTitle.textContent = data.title;
+                popupImage.src = data.image;
+                popupImage.alt = data.title;
+                popupDescription.textContent = data.description;
+                popupOrigin.textContent = data.origin;
+                
+                // Position and show popup
+                positionPopup(this);
+                popup.style.display = 'block';
+            });
+            
+            area.addEventListener('mouseleave', function() {
+                popup.style.display = 'none';
+            });
+             // New: handle click to open dance page
+    area.addEventListener('click', function () {
+        const url = this.getAttribute('data-url');
+        if (url) {
+            window.open(url, '_blank');
+        }
+    });
+        });
+       
+        
+        // Hide popup when mouse leaves map container
+        document.querySelector('.map-container').addEventListener('mouseleave', function() {
+            popup.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

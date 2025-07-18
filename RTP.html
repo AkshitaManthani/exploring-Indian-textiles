@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>India Tribal Dances</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .map-container {
+      text-align: center;
+      position: relative;
+    }
+    .popup-box {
+      display: none;
+      position: absolute;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 10px;
+      width: 220px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+    .popup-box h3 {
+      margin: 0;
+      font-size: 16px;
+      color: #333;
+    }
+    .popup-box p {
+      margin: 5px 0;
+      font-size: 13px;
+      color: #555;
+    }
+    .popup-box a {
+      text-decoration: none;
+      color: #0066cc;
+      font-size: 13px;
+    }
+    .close-btn {
+      float: right;
+      font-weight: bold;
+      cursor: pointer;
+      color: #999;
+    }
+    .close-btn:hover {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<div class="map-container">
+  <img src="india.jpg" usemap="#india" id="india-map" />
+
+  <!-- Popup Boxes -->
+  <div id="popup-ap" class="popup-box" style="top: 400px; left: 300px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Andhra Pradesh</h3><p><strong>Dharmavaram</strong></p><img src="AP1.jpg" width="100%"><a href="ap.html" target="_blank">View More →</a></div>
+  <div id="popup-ar" class="popup-box" style="top: 120px; left: 620px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Arunachal Pradesh</h3><p><strong>Wancho</strong></p><img src="wancho.jpg" width="100%"><a href="ar.html" target="_blank">View More →</a></div>
+  <div id="popup-as" class="popup-box" style="top: 140px; left: 580px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Assam</h3><p><strong>Bihu</strong></p><img src="bihu.jpg" width="100%"><a href="as.html" target="_blank">View More →</a></div>
+  <div id="popup-br" class="popup-box" style="top: 180px; left: 500px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Bihar</h3><p><strong>Jat-Jatin</strong></p><img src="jatjatin.jpg" width="100%"><a href="br.html" target="_blank">View More →</a></div>
+  <div id="popup-ct" class="popup-box" style="top: 230px; left: 460px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Chhattisgarh</h3><p><strong>Raut Nacha</strong></p><img src="rautnacha.jpg" width="100%"><a href="ct.html" target="_blank">View More →</a></div>
+  <div id="popup-ga" class="popup-box" style="top: 370px; left: 180px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Goa</h3><p><strong>Fugdi</strong></p><img src="fugdi.jpg" width="100%"><a href="ga.html" target="_blank">View More →</a></div>
+  <div id="popup-gj" class="popup-box" style="top: 270px; left: 220px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Gujarat</h3><p><strong>Garba</strong></p><img src="garba.jpg" width="100%"><a href="gj.html" target="_blank">View More →</a></div>
+  <div id="popup-hr" class="popup-box" style="top: 160px; left: 280px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Haryana</h3><p><strong>Phag</strong></p><img src="phag.jpg" width="100%"><a href="hr.html" target="_blank">View More →</a></div>
+  <div id="popup-hp" class="popup-box" style="top: 100px; left: 290px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Himachal Pradesh</h3><p><strong>Kullu Nati</strong></p><img src="kullunati.jpg" width="100%"><a href="hp.html" target="_blank">View More →</a></div>
+  <div id="popup-jh" class="popup-box" style="top: 210px; left: 490px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Jharkhand</h3><p><strong>Paika</strong></p><img src="paika.jpg" width="100%"><a href="jh.html" target="_blank">View More →</a></div>
+  <div id="popup-ka" class="popup-box" style="top: 430px; left: 250px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Karnataka</h3><p><strong>Dollu Kunitha</strong></p><img src="dollukunitha.jpg" width="100%"><a href="ka.html" target="_blank">View More →</a></div>
+  <div id="popup-kl" class="popup-box" style="top: 500px; left: 270px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Kerala</h3><p><strong>Theyam</strong></p><img src="theyyam.jpg" width="100%"><a href="kl.html" target="_blank">View More →</a></div>
+  <div id="popup-mp" class="popup-box" style="top: 300px; left: 330px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Madhya Pradesh</h3><p><strong>Matki</strong></p><img src="matki.jpg" width="100%"><a href="mp.html" target="_blank">View More →</a></div>
+  <div id="popup-mh" class="popup-box" style="top: 350px; left: 270px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Maharashtra</h3><p><strong>Tarpa</strong></p><img src="tarpa.jpg" width="100%"><a href="mh.html" target="_blank">View More →</a></div>
+  <div id="popup-mn" class="popup-box" style="top: 200px; left: 640px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Manipur</h3><p><strong>Thang Ta</strong></p><img src="thangta.jpg" width="100%"><a href="mn.html" target="_blank">View More →</a></div>
+  <div id="popup-ml" class="popup-box" style="top: 180px; left: 600px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Meghalaya</h3><p><strong>Shad Suk Mynsiem</strong></p><img src="shadsuk.jpg" width="100%"><a href="ml.html" target="_blank">View More →</a></div>
+  <div id="popup-mz" class="popup-box" style="top: 220px; left: 620px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Mizoram</h3><p><strong>Cheraw</strong></p><img src="cheraw.jpg" width="100%"><a href="mz.html" target="_blank">View More →</a></div>
+  <div id="popup-nl" class="popup-box" style="top: 160px; left: 630px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Nagaland</h3><p><strong>Chang Lo</strong></p><img src="changlo.jpg" width="100%"><a href="nl.html" target="_blank">View More →</a></div>
+  <div id="popup-or" class="popup-box" style="top: 290px; left: 500px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Odisha</h3><p><strong>Chhau</strong></p><img src="chhau.jpg" width="100%"><a href="or.html" target="_blank">View More →</a></div>
+  <div id="popup-pb" class="popup-box" style="top: 140px; left: 250px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Punjab</h3><p><strong>Bhangra</strong></p><img src="bhangra.jpg" width="100%"><a href="pb.html" target="_blank">View More →</a></div>
+  <div id="popup-rj" class="popup-box" style="top: 220px; left: 180px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Rajasthan</h3><p><strong>Ghoomar</strong></p><img src="ghoomar.jpg" width="100%"><a href="rj.html" target="_blank">View More →</a></div>
+  <div id="popup-sk" class="popup-box" style="top: 150px; left: 530px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Sikkim</h3><p><strong>Singhi Chaam</strong></p><img src="singhichaam.jpg" width="100%"><a href="sk.html" target="_blank">View More →</a></div>
+  <div id="popup-tn" class="popup-box" style="top: 520px; left: 320px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Tamil Nadu</h3><p><strong>Karakattam</strong></p><img src="karakattam.jpg" width="100%"><a href="tn.html" target="_blank">View More →</a></div>
+  <div id="popup-tg" class="popup-box" style="top: 380px; left: 340px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Telangana</h3><p><strong>Perini</strong></p><img src="perini.jpg" width="100%"><a href="tg.html" target="_blank">View More →</a></div>
+  <div id="popup-tr" class="popup-box" style="top: 220px; left: 670px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Tripura</h3><p><strong>Hojagiri</strong></p><img src="hojagiri.jpg" width="100%"><a href="tr.html" target="_blank">View More →</a></div>
+  <div id="popup-up" class="popup-box" style="top: 200px; left: 360px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Uttar Pradesh</h3><p><strong>Raslila</strong></p><img src="raslila.jpg" width="100%"><a href="up.html" target="_blank">View More →</a></div>
+  <div id="popup-wb" class="popup-box" style="top: 250px; left: 540px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>West Bengal</h3><p><strong>Chhau</strong></p><img src="chhauwb.jpg" width="100%"><a href="wb.html" target="_blank">View More →</a></div>
+  <div id="popup-ut" class="popup-box" style="top: 150px; left: 320px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Uttarakhand</h3><p><strong>Bhotia Dance</strong></p><img src="images/utk1.jpg" width="100%"><p>The Bhotiya dance is a traditional tribal dance performed by the Bhotiya community in Uttarakhand, India</p><a href="uttarakhand.html" target="_blank">View More →</a></div>
+  <div id="popup-jk" class="popup-box" style="top: 50px; left: 200px;"><span class="close-btn" onclick="this.parentElement.style.display='none'">x</span><h3>Tribal dance of Jammu & Kashmir</h3><p><strong>Rouf dance</strong></p><img src="images/jk3.jpg" width="80%"><p>Rouf is a traditional folk dance of Kashmir, characterized by its graceful movements and rhythmic footwork.</p><a href="jammu.html" target="_blank">View More →</a></div>
+</div>
+
+<map name="india">
+  <area shape="circle" coords="166,357,16" title="Andhra Pradesh" href="#" onclick="document.getElementById('popup-ap').style.display='block'; return false;">
+  <area shape="rect" coords="405,137,359,162" title="Arunachal Pradesh" href="#" onclick="document.getElementById('popup-ar').style.display='block'; return false;">
+  <area shape="rect" coords="327,175,370,183" title="Assam" href="#" onclick="document.getElementById('popup-as').style.display='block'; return false;">
+  <area shape="rect" coords="247,176,278,203" title="Bihar" href="#" onclick="document.getElementById('popup-br').style.display='block'; return false;">
+  <area shape="poly" coords="215,229,243,237,202,298" title="Chhattisgarh" href="#" onclick="document.getElementById('popup-ct').style.display='block'; return false;">
+  <area shape="rect" coords="95,339,97,349" title="Goa" href="#" onclick="document.getElementById('popup-ga').style.display='block'; return false;">
+  <area shape="rect" coords="29,210,96,254" title="Gujarat" href="#" onclick="document.getElementById('popup-gj').style.display='block'; return false;">
+  <area shape="circle" coords="139,139,4" title="Haryana" href="#" onclick="document.getElementById('popup-hr').style.display='block'; return false;">
+  <area shape="circle" coords="152,96,9" title="Himachal Pradesh" href="#" onclick="document.getElementById('popup-hp').style.display='block'; return false;">
+  <area shape="rect" coords="241,215,273,235" title="Jharkhand" href="#" onclick="document.getElementById('popup-jh').style.display='block'; return false;">
+  <area shape="rect" coords="105,334,144,387" title="Karnataka" href="#" onclick="document.getElementById('popup-ka').style.display='block'; return false;">
+  <area shape="poly" coords="114,401,128,404,136,453" title="Kerala" href="#" onclick="document.getElementById('popup-kl').style.display='block'; return false;">
+  <area shape="rect" coords="119,210,192,247" title="Madhya Pradesh" href="#" onclick="document.getElementById('popup-mp').style.display='block'; return false;">
+  <area shape="rect" coords="89,277,139,303" title="Maharashtra" href="#" onclick="document.getElementById('popup-mh').style.display='block'; return false;">
+  <area shape="circle" coords="377,203,4" title="Manipur" href="#" onclick="document.getElementById('popup-mn').style.display='block'; return false;">
+  <area shape="rect" coords="326,188,354,195" title="Meghalaya" href="#" onclick="document.getElementById('popup-ml').style.display='block'; return false;">
+  <area shape="poly" coords="359,217,367,216,365,236" title="Mizoram" href="#" onclick="document.getElementById('popup-mz').style.display='block'; return false;">
+  <area shape="rect" coords="381,175,387,184" title="Nagaland" href="#" onclick="document.getElementById('popup-nl').style.display='block'; return false;">
+  <area shape="circle" coords="250,271,16" title="Odisha" href="#" onclick="document.getElementById('popup-or').style.display='block'; return false;">
+  <area shape="rect" coords="118,98,134,121" title="Punjab" href="#" onclick="document.getElementById('popup-pb').style.display='block'; return false;">
+  <area shape="poly" coords="63,160,129,157,70,196,135,196" title="Rajasthan" href="#" onclick="document.getElementById('popup-rj').style.display='block'; return false;">
+  <area shape="circle" coords="301,162,3" title="Sikkim" href="#" onclick="document.getElementById('popup-sk').style.display='block'; return false;">
+  <area shape="poly" coords="137,409,176,408,154,444" title="Tamil Nadu" href="#" onclick="document.getElementById('popup-tn').style.display='block'; return false;">
+  <area shape="poly" coords="165,285,152,333,195,312" title="Telangana" href="#" onclick="document.getElementById('popup-tg').style.display='block'; return false;">
+  <area shape="circle" coords="346,221,5" title="Tripura" href="#" onclick="document.getElementById('popup-tr').style.display='block'; return false;">
+  <area shape="rect" coords="165,156,231,195" title="Uttar Pradesh" href="#" onclick="document.getElementById('popup-up').style.display='block'; return false;">
+  <area shape="poly" coords="298,200,276,232,307,247" title="West Bengal" href="#" onclick="document.getElementById('popup-wb').style.display='block'; return false;">
+  <area shape="rect" coords="162,113,188,132" title="Uttarakhand" href="#" onclick="document.getElementById('popup-ut').style.display='block'; return false;">
+  <area shape="rect" coords="103,25,169,76" title="Jammu & Kashmir" href="#" onclick="document.getElementById('popup-jk').style.display='block'; return false;">
+</map>
+
+</body>
+</html>
